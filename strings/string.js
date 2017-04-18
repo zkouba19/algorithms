@@ -2,6 +2,9 @@
 ///////////////////// Strings //////////////////////////
 ////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////
+///////// remove all spaces from the string ////////////
+////////////////////////////////////////////////////////
 
 function RemoveBlanks(str){
 	var tempStr = ""
@@ -12,10 +15,14 @@ function RemoveBlanks(str){
 	}
 	return tempStr;
 }
-
+//////////////// test ////////////////
 // var string = "I Am Always Hungry"
 // console.log(RemoveBlanks(string));
+////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////
+//// given string with numbers. return integer from numbers in the string  ////
+///////////////////////////////////////////////////////////////////////////////
 
 function StringGetDigits(str){
 	var DigitString = ""
@@ -26,9 +33,15 @@ function StringGetDigits(str){
 	}
 	return Number(DigitString);
 }
-
+////////// tests ///////////////
 // var S = "hi12for4three3";
 // console.log(StringGetDigits(S))
+///////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////
+///// create an acronym given a string with multiple words. ///////////
+///// also include '-' & treat characters following '-' as a word. /////
+///////////////////////////////////////////////////////////////////////////
 
 function Acronyms(str){
 	var acronymString = ""
@@ -46,8 +59,16 @@ function Acronyms(str){
 	}
 	return acronymString.toUpperCase();
 }
+
+////////// tests //////////
 // console.log('Acronyms');
 // console.log(Acronyms("there is no free lunch - gotta pay your way"))
+////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+///// accept a string and return the number on no-space characters in the string /////
+//////////////////////////////////////////////////////////////////////////////////////
 
 function CountNonSpaces(str){
 	var countNonSpaces = 0;
@@ -58,11 +79,15 @@ function CountNonSpaces(str){
 	}
 	return countNonSpaces
 }
+//////// test //////////
 // console.log("countNonSpaces")
 // console.log(CountNonSpaces("there is no free lunch - gotta pay your way"))
+/////////////////////////
 
-//// given an array of strings and a minimum length ////
-//// remove any strings that are shorter than min length//
+////////////////////////////////////////////////////////////
+//// given an array of strings and a minimum length ////////
+//// remove any strings that are shorter than min length. //
+////////////////////////////////////////////////////////////
 
 function RemoveShortStrings(arrOfStrings, minLength){
 	for(var i = 0; i < arrOfStrings.length; i++){
@@ -75,12 +100,16 @@ function RemoveShortStrings(arrOfStrings, minLength){
 	}
 	return arrOfStrings
 }
-
+////////// test //////////
 // var arrSting = ['dude', 'bro', 'brodude', 'somethingcool', 'idk', 'chye']
 // console.log('RemoveShortStrings');
 // console.log(RemoveShortStrings(arrSting, 4))
 // console.log(RemoveShortStrings(arrSting, 5))
+/////////////////////////
 
+//////////////////////////////////////////////////////////////////////
+///// given a string. create a string wiht the reverse characters ////
+//////////////////////////////////////////////////////////////////////
 
 function reverseString(str){
 	var reversedStr = ""
@@ -89,45 +118,15 @@ function reverseString(str){
 	}
 	return reversedStr
 }
-
+/////////////// test ///////////////
 // var revStr = "i like food"
 // console.log('reverseString');
 // console.log(reverseString(revStr))
+//////////////////////////////////////
 
-// function IntegerToRomanNum(num){
-// 	var RomanNumeral = ""
-// 	while(num > 0){
-// 		if(num >= 1000){
-// 			num = num - 1000
-// 			RomanNumeral += "M"			
-// 		} else if(num < 1000 && num >= 900){
-// 			num = num - 900
-// 			RomanNumeral += "IM"	
-// 		} else if(num < 1000 && num >= 800){
-// 			num = num - 800
-// 			RomanNumeral += "IIM"
-// 		} else if(num >= 500){
-// 			num = num -
-// 			RomanNumeral += "D"
-// 		} else if(num >= 100){
-// 			num = num -
-// 			RomanNumeral += "C"
-// 		} else if(num >= 50){
-// 			num = num -
-// 			RomanNumeral += "L"
-// 		} else if(num >= 10){
-// 			num = num -
-// 			RomanNumeral += "X"
-// 		} else if(num >= 5){
-// 			num = num -
-// 			RomanNumeral += "V"
-// 		} else if(num >= 1){
-// 			num = num -
-// 			RomanNumeral += "I"
-// 		}
-// 	}
-// }
-
+/////////////////////////////////////////////////////////////////////////////////////////
+///// given a string, determine wether any braces in the string are properly closed /////
+/////////////////////////////////////////////////////////////////////////////////////////
 
 function BracesValid(str){
 	var ValidBracesArray = [];
@@ -163,11 +162,16 @@ function BracesValid(str){
 	} 
 	return true
 }
-
+////////// tests //////////
 // console.log("BracesValid")
 // console.log(BracesValid("{}hcudibv{d(k)je}ceicbdjk"));
 // console.log(BracesValid("{}hcudibvdkje}ceicbdjk"));
+///////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////
+///// Given a string return wether or not the string is a palindrone. ///////////////
+///// String is the same forwards as it is backwards. (ex: "racecar" --> true) //////
+/////////////////////////////////////////////////////////////////////////////////////
 
 function IsPalindrone(str){
 	for(var i = 0; i < Math.floor(str.length/2); i++){
@@ -178,16 +182,15 @@ function IsPalindrone(str){
 	}
 	return true
 }
+////////// tests /////////
 // console.log("IsPalindrone");
 // console.log(IsPalindrone('racecar'));
 // console.log(IsPalindrone('racecars'));
+/////////////////////////
 
-// function RemoveLeadinTrailingSpaces(str){
-// 	var newStr = "";
-// 	var firstCharHit = false;
-// 	var lastCharHit = false;
-// 	while(firstCharHit == false || lastCharHit == false)
-// }
+/////////////////////////////////////////////////////////////////////////////////
+//// given an array of strings determine the longest possible common suffix. ////
+/////////////////////////////////////////////////////////////////////////////////
 
 function CommonSuffix(arrayStr){
 	var suffixStr = "";
@@ -208,8 +211,8 @@ function CommonSuffix(arrayStr){
 	}
 	return suffixStr;
 }
-
-var sf = ["caution", "attention", "retention"]
-console.log(CommonSuffix(sf))
-
+//////////// tests ////////////
+// var sf = ["caution", "attention", "retention"]
+// console.log(CommonSuffix(sf))
+//////////////////////////////
 
