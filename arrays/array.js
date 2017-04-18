@@ -35,7 +35,10 @@ function insertAt(arr, pos, val){
 	return arr
 }
 
+//////////// tests //////////////////
 // console.log(insertAt(arrSM,2,21))
+//////////////////////////////////////
+
 ////////////////////////////////////////////////////////////
 //////////// remove item at specific position //////////////
 
@@ -47,10 +50,13 @@ function RemoveAt(arr, pos){
 	return arr
 }
 
+//////////// tests //////////////////
 // console.log(RemoveAt(arrMD, 3))
+//////////////////////////////////////
 
-
-
+////////////////////////////////////////////////////////////
+//Swap each pair in the arr. if arr is odd leave last val//
+///////////// ex: [1,2,3,4] --> [2,1,4,3] ////////////////
 function SwapPairs(arr){
 	console.log('running the function')
 	for(var i = 0; i < arr.length-1; i+=2){
@@ -62,6 +68,9 @@ function SwapPairs(arr){
 	}
 	return arr
 }
+
+////////////////////////////////////////////////////////////
+/////////////// remove all duplicates //////////////////////
 
 function RemoveDuplicatesFromSortedArray(arr){
 	var i = 0
@@ -76,9 +85,14 @@ function RemoveDuplicatesFromSortedArray(arr){
 	return arr
 }
 
+//////////// tests //////////////////
 // console.log(RemoveDuplicatesFromSortedArray(arrSM))
 // var arrDUP = [12,12,23,23,34,34]
 // console.log(RemoveDuplicatesFromSortedArray(arrDUP))
+//////////////////////////////////////
+
+////////////////////////////////////////////////////////
+///// find min and shift to the front of the array /////
 
 function MinToFront(arr){
 	var minPosition = 0
@@ -95,8 +109,13 @@ function MinToFront(arr){
 	arr[0] = min;
 	return arr
 }
+//////////// tests //////////////////
 // console.log('min to front');
 // console.log(MinToFront(arrMD))
+//////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////
+////////// Alter array to reverse all values in place /////////////
 
 function ReverseArray(arr){
 	var middle = Math.floor(arr.length/2);
@@ -108,8 +127,13 @@ function ReverseArray(arr){
 	return arr
 }
 
+//////////// tests //////////////////
 // console.log(ReverseArray(arrSM))
+//////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////
+//////// takes array and offset to shift array's values /////////
+////////////////// to the right by that amount /////////////////
 function RotateArray(arr, shiftBy){
 	var x = shiftBy;
 	while(x > 0){
@@ -123,9 +147,10 @@ function RotateArray(arr, shiftBy){
 	return arr
 }
 
+//////////// tests //////////////////
 // console.log(arrSM)
 // console.log(RotateArray(arrSM, 2))
-
+//////////////////////////////////////
 
 ////// FilterRange is taking a min and a max number and removing ////
 /////// any number that falls outside of that range ////////////////
@@ -140,10 +165,14 @@ function FilterRange(arr, min, max){
 	return arr
 }
 
+//////////// tests //////////////////
 // console.log('FilterRange')
 // console.log(FilterRange(arrLG, 10, 25))
+//////////////////////////////////////
 
-
+//////////////////////////////////////////////////////////////////
+///// Takes in two arrays and returns a new array containing /////
+/////// the first array's elements then the second array ////////
 function ConcactArray(arr1, arr2){
 	var newArray = arr1;
 	for(var i = 0; i < arr2.length; i++){
@@ -151,8 +180,32 @@ function ConcactArray(arr1, arr2){
 	}
 	return newArray;
 }
+//////////// tests //////////////////
 // console.log('ConcactArray');
 // console.log(ConcactArray(arrSM, arrMD));
+//////////////////////////////////////
+
+////////////////////////// Skyline Heights ////////////////////////////////////
+///// given an array of heights of consecutive buildings in your view, ////////
+///// return the array with the heights of each building you can see //////////
+///// ex: [-1,3,5,4,7] ---> [3,5,7] since -1 is below your view and 4 is //////
+///// after 5 you would only be able to see buildings [3,5,7]. ////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+function SkylineHeights(arr){
+	var minHeight = 0;
+	var visibleBuldingArr = [];
+	for(var i = 0; i < arr.length; i ++){
+		if(arr[i] > minHeight){
+			visibleBuldingArr.push(arr[i]);
+		} 
+	}
+	return visibleBuldingArr;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////// Remove all negaitve values & keep arr in order. No new Arr //////////
+////////////////////////////////////////////////////////////////////////////////
 
 function RemoveNegatives(arr){
 	var countOfNegatives = 0;
@@ -174,9 +227,15 @@ function RemoveNegatives(arr){
 	}
 	return arr
 }
+//////////// tests //////////////////
 // var NegArr = [-1,12,3,-2,-6,-10]
 // console.log('RemoveNegatives')
 // console.log(RemoveNegatives(NegArr))
+//////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////
+////////// return the element that is Nth away from the end of the array ////////////
+/////////////////////////////////////////////////////////////////////////////////////
 
 function NthToLast(arr, n){
 	if(arr.length < n){
@@ -185,8 +244,14 @@ function NthToLast(arr, n){
 		return arr[arr.length-n]
 	}
 }
+//////////// tests //////////////////
 // console.log(arrLG)
 // console.log(NthToLast(arrLG, 5))
+//////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////
+////////// Return the Nth-largest element  where (N-1) elements are larger ///////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 
 function NthLargest(arr, n){
 	var max = 0;
@@ -211,27 +276,43 @@ function NthLargest(arr, n){
 	}
 	return Nlargest
 }
-console.log('NthLargest')
-console.log(NthLargest(arrMD, 2))
+//////////// tests //////////////////
+// console.log('NthLargest')
+// console.log(NthLargest(arrMD, 2))
+//////////////////////////////////////
+
+////////////////////////////////// Credit Card Validation ///////////////////////////////////////////
+////////// Also known as the Luhn formula. Accepts an array of digits on the car (0-9) //////////////
+////////// with the length of the array between 13-19 characters depending on the card. /////////////
+//////////////////// returns a boolean based on meeting the following requirements //////////////////
+		// 1. set aside the last digit and do not include it in the calculations until step 5
+		// 2. Starting from the back multiply the digits in odd positions by 2 (ex: last, third-last, ect.)
+		// 3. if any results are larger than 9, subtract 9 from them
+		// 4. add all the numbers in the array together
+		// 5. now add the last digit back in & the sum should be a multiple of 10. return true or false.
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 function CreditCardValidation(arr){
 	var sum = 0;
+	var oddCount = 1;
 	if(arr.length > 19 || arr.length < 13){
 		return false
 	} 
 	var lastNumber = arr[arr.length-1];
 	arr.pop()
-	for(var i = 0; i < arr.length; i++){
-		if(arr[i] > 9){
-			return false
-		}
-		if(i % 2 == 1){
+	for(var i = arr.length-1; i >= 0; i--){
+		if(oddCount % 2 == 1){
 			arr[i] += arr[i];
 			if(arr[i] > 9){
-				arr[i] = arr[i]-9
+				arr[i] = arr[i]-9;
 			}
-			sum += arr[i]+arr[i-1]
+			sum += arr[i];
+		} else {
+			sum += arr[i];
 		}
+		oddCount++;
 	}
 	var finalNumber = sum + lastNumber
 	console.log(arr)
@@ -241,8 +322,17 @@ function CreditCardValidation(arr){
 	}
 	return false
 }
+//////////// tests //////////////////
+//////////// tests //////////////////
 // var cardArray = [4,4,0,0,6,6,9,1,3,9,4,6,6,9,4,0]
 // console.log(CreditCardValidation(cardArray))
+//////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+////////// randomizes an array by hitting each index and swapping it  ///////////////
+////////// with a random position in the array.	/////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 
 function ShuffleArray(arr){
 	for(var i = 0; i < arr.length; i ++){
@@ -253,8 +343,16 @@ function ShuffleArray(arr){
 	}
 	return arr
 }
+//////////// tests //////////////////
 // console.log('ShuffleArray')
 // console.log(ShuffleArray(arrMD))
+//////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+/////// removing each element in the array that falls outsite the range /////////////
+/////// of the start and end parameters given. ////////////////////////////////////// 
+/////////////////////////////////////////////////////////////////////////////////////
 
 function removeIndicesRange(arr, start, end){
 	var count = 0;
@@ -274,9 +372,17 @@ function removeIndicesRange(arr, start, end){
 	}
 	return arr
 }
-
+//////////// tests //////////////////
 // console.log('removeIndicesRange');
 // console.log(removeIndicesRange(arrLG, 1, 2))
+////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+//// after every 10th element in the array provide the sum of those 10 //////
+///// elements. If the array length is not equally divisible by 10, add /////
+///// the sum of the remaining elements. ////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
 
 function intermediateSum(arr){
 	var sum = arr[0];
@@ -294,13 +400,15 @@ function intermediateSum(arr){
 	}
 	return arr;
 }
-
+//////////// tests //////////////////
 // var sumArr = [1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2]
 // var sumArr = [1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2]
 // console.log(intermediateSum(sumArr))
+////////////////////////////////////
 
-//////////// duplicate all elements in the array /////////
-//////////// keeping elements in their original order /////
+/////////////////////////////////////////////////////////////////////////////////////
+/// duplicate all elements in the array keeping elements in their original order ////
+/////////////////////////////////////////////////////////////////////////////////////
 
 function DoubleTrouble(arr){
 	for(var i = 0; i < arr.length; i+=2){
@@ -308,9 +416,14 @@ function DoubleTrouble(arr){
 	}
 	return arr;
 }
-
+//////////// tests //////////////////
 // console.log('DoubleTrouble')
 // console.log(DoubleTrouble(arrSM))
+/////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////
+//// take in two arrays and combine their elements sequentially into a new arr ///
+/////////////////////////////////////////////////////////////////////////////////
 
 function ZipIt(arr1, arr2){
 	var i = 0;
@@ -327,12 +440,18 @@ function ZipIt(arr1, arr2){
 
 	return zippedArr;
 }
+
+//////////// tests //////////////////
 // var arr0 = [0,2,4,6];
 // var arr9 = [1,3,5,7];
 // console.log('ZipIt');
 // console.log(ZipIt(arr0, arr9))
+///////////////////////////////////////
 
 
+////////////////////////////////////////////////////////////////////////////
+//// determine wether or not a game of tic tac toe has a winner or not ////
+//////////////////////////////////////////////////////////////////////////
 
  function TicTacToeWinner(arr){
  	for(var i = 0; i < arr.length; i++){
@@ -366,3 +485,6 @@ function ZipIt(arr1, arr2){
 // 	]
 // console.log('TicTacToeWinner')
 // console.log(TicTacToeWinner(TTTBoardTrue))
+
+
+

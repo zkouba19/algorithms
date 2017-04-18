@@ -142,3 +142,29 @@ SLL.prototype.Size = function(){
 // console.log(List1.IsEmpty());
 // console.log(List1.Size())
 // console.log(CompareQueues(List1, List2));
+
+
+
+///////////////////////////////////////
+////////// Array Queues ///////////////
+///////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
